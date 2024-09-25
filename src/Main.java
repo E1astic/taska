@@ -31,11 +31,11 @@ public class Main {
             server[i]=arg[2];
             result[i]=arg[3];
 
-            Map<String, Integer> countAttemptsEveryServersEveryTeams = informationOfEveryTeam.computeIfAbsent(team[i], k -> new HashMap<>());
+            Map<String, Integer> countAttemptsEveryServers = informationOfEveryTeam.computeIfAbsent(team[i], k -> new HashMap<>());
 
             if (result[i].equals("FORBIDDEN") || result[i].equals("DENIED"))
             {
-                countAttemptsEveryServersEveryTeams.put(server[i], countAttemptsEveryServersEveryTeams.getOrDefault(server[i], 0) + 1);
+                countAttemptsEveryServers.put(server[i], countAttemptsEveryServers.getOrDefault(server[i], 0) + 1);
             }
             else
             {
@@ -76,8 +76,6 @@ public class Main {
         {
             System.out.println(i+1 +" " + res.get(i).toString());
         }
-
-
 
     }
 }
